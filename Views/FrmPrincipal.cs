@@ -1,6 +1,7 @@
 using TesteConhecimento.Controls;
 using TesteConhecimento.Infrastructure.Context;
 using TesteConhecimento.Models;
+using TesteConhecimento.Views;
 
 namespace TesteConhecimento
 {
@@ -58,7 +59,7 @@ namespace TesteConhecimento
             }
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void btnPopulate_Click(object sender, EventArgs e)
         {
             await PessoaController.SeedAsync();
             await CarregarGridViewAsync();
@@ -74,14 +75,20 @@ namespace TesteConhecimento
 
         }
 
-        private async void button2_Click(object sender, EventArgs e)
+        private async void btnRefreshGrid_Click(object sender, EventArgs e)
         {
             await CarregarGridViewAsync();
 
         }
 
-        private void btnAddPessoa_Click(object sender, EventArgs e)
+        private async void btnAddPessoa_Click(object sender, EventArgs e)
         {
+            using var formAddPessoa = new FrmPessoas();
+            var result = formAddPessoa.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+               await CarregarGridViewAsync();
+            }
 
         }
     }

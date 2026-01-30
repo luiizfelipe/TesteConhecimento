@@ -30,8 +30,8 @@
         {
             loading = new Label();
             dgView = new DataGridView();
-            button1 = new Button();
-            button2 = new Button();
+            btnPopulate = new Button();
+            btnRefreshGrid = new Button();
             btnAddPessoa = new Button();
             ((System.ComponentModel.ISupportInitialize)dgView).BeginInit();
             SuspendLayout();
@@ -54,27 +54,27 @@
             dgView.Size = new Size(737, 262);
             dgView.TabIndex = 2;
             // 
-            // button1
+            // btnPopulate
             // 
-            button1.BackColor = Color.Lime;
-            button1.ForeColor = Color.ForestGreen;
-            button1.Location = new Point(21, 392);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 3;
-            button1.Text = "POPULAR";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnPopulate.BackColor = Color.Lime;
+            btnPopulate.ForeColor = Color.ForestGreen;
+            btnPopulate.Location = new Point(21, 392);
+            btnPopulate.Name = "btnPopulate";
+            btnPopulate.Size = new Size(75, 23);
+            btnPopulate.TabIndex = 3;
+            btnPopulate.Text = "POPULAR";
+            btnPopulate.UseVisualStyleBackColor = false;
+            btnPopulate.Click += btnPopulate_Click;
             // 
-            // button2
+            // btnRefreshGrid
             // 
-            button2.Location = new Point(116, 392);
-            button2.Name = "button2";
-            button2.Size = new Size(132, 23);
-            button2.TabIndex = 4;
-            button2.Text = "Recarregar Tabela";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnRefreshGrid.Location = new Point(116, 392);
+            btnRefreshGrid.Name = "btnRefreshGrid";
+            btnRefreshGrid.Size = new Size(132, 23);
+            btnRefreshGrid.TabIndex = 4;
+            btnRefreshGrid.Text = "Recarregar Tabela";
+            btnRefreshGrid.UseVisualStyleBackColor = true;
+            btnRefreshGrid.Click += btnRefreshGrid_Click;
             // 
             // btnAddPessoa
             // 
@@ -92,12 +92,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnAddPessoa);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnRefreshGrid);
+            Controls.Add(btnPopulate);
             Controls.Add(dgView);
             Controls.Add(loading);
             Name = "FrmPrincipal";
-            Text = "Form1";
+            Text = "FrmPrincipal";
             Load += FrmPrincipal_Load;
             ((System.ComponentModel.ISupportInitialize)dgView).EndInit();
             ResumeLayout(false);
@@ -108,8 +108,8 @@
 
         private Label loading;
         private DataGridView dgView;
-        private Button button1;
-        private Button button2;
+        private Button btnPopulate;
+        private Button btnRefreshGrid;
         private Button btnAddPessoa;
     }
 }
