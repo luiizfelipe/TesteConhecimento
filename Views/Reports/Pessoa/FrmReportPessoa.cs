@@ -14,9 +14,6 @@ namespace TesteConhecimento.Views.Reports
         public FrmReportPessoa()
         {
             InitializeComponent();
-            // DataTable dados
-
-
             reportViewerPessoa.LocalReport.ReportEmbeddedResource = "TesteConhecimento.Views.Reports.Pessoa.ReportPessoa.rdlc";  
 
         }
