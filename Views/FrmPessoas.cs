@@ -24,10 +24,14 @@ namespace TesteConhecimento.Views
             {
                 txtNome.Text = Pessoa.Nome;
                 txtTelefone.Text = Pessoa.Telefone;
+                lblTitle.Text = "Edição de Pessoa";
             }
             else
             {
+                btnExcluir.FlatAppearance.BorderColor = Color.DarkGray;
+                btnExcluir.BackColor = Color.Gray;
                 btnExcluir.Enabled = false;
+                lblTitle.Text = "Cadastro de Pessoa";
             }
         }
 
