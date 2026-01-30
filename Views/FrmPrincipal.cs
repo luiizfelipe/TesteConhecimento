@@ -2,6 +2,7 @@ using TesteConhecimento.Controls;
 using TesteConhecimento.Infrastructure.Context;
 using TesteConhecimento.Models;
 using TesteConhecimento.Views;
+using TesteConhecimento.Views.Reports;
 
 namespace TesteConhecimento
 {
@@ -94,7 +95,7 @@ namespace TesteConhecimento
         {
             if (e.RowIndex < 0) return; // ignora header
 
-            var pessoa = dgView.Rows[e.RowIndex].DataBoundItem;
+            Pessoa? pessoa = (Pessoa?)dgView.Rows[e.RowIndex].DataBoundItem;
             if (pessoa == null) return;
 
             using var formAddPessoa = new FrmPessoas(pessoa);
@@ -104,6 +105,14 @@ namespace TesteConhecimento
                 await CarregarGridViewAsync();
             }
 
+
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+
+            using var frmReportPessoa= new FrmReportPessoa();
+            frmReportPessoa.ShowDialog();
 
         }
     }
