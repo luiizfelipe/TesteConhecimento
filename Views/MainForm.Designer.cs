@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            loading = new Label();
+            SuspendLayout();
+            // 
+            // loading
+            // 
+            loading.AutoSize = true;
+            loading.Font = new Font("Segoe UI", 32F);
+            loading.Location = new Point(254, 185);
+            loading.Name = "loading";
+            loading.Size = new Size(274, 59);
+            loading.TabIndex = 0;
+            loading.Text = "Carregando...";
+            // 
+            // MainForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(loading);
+            Name = "MainForm";
             Text = "Form1";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label loading;
     }
 }
