@@ -1,3 +1,4 @@
+using System.Windows.Forms;
 using TesteConhecimento.Controls;
 using TesteConhecimento.Infrastructure.Context;
 using TesteConhecimento.Models;
@@ -42,6 +43,8 @@ namespace TesteConhecimento
             {
                 var pessoas = await PessoaController.GetAllPessoas();
                 dgView.DataSource = pessoas.ToList();
+                dgView.ClearSelection();
+
 
                 var idColumn = dgView.Columns["Id"];
                 if (idColumn != null)

@@ -20,11 +20,13 @@ namespace TesteConhecimento.Views
             this.Pessoa = pessoa;
             this.IsEditMode = this.Pessoa != null;
 
-            if(IsEditMode && Pessoa != null)
+            if (IsEditMode && Pessoa != null)
             {
                 txtNome.Text = Pessoa.Nome;
                 txtTelefone.Text = Pessoa.Telefone;
-            } else { 
+            }
+            else
+            {
                 btnExcluir.Enabled = false;
             }
         }
@@ -60,18 +62,19 @@ namespace TesteConhecimento.Views
 
         private async void btnExcluir_Click(object sender, EventArgs e)
         {
-            if(!IsEditMode || Pessoa == null)
+            if (!IsEditMode || Pessoa == null)
             {
                 return;
             }
 
             var confirmResult = MessageBox.Show("Tem certeza que deseja excluir esta pessoa?", "Confirmação de Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            
+
             if (confirmResult == DialogResult.Yes)
             {
                 if (await PessoaController.DeletePessoa(Pessoa.Id))
                 {
                     MessageBox.Show("Pessoa excluída com sucesso.", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
                 }
                 else
                 {
@@ -79,6 +82,11 @@ namespace TesteConhecimento.Views
                     return;
                 }
             }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

@@ -97,6 +97,7 @@
             btnFechar.TabIndex = 6;
             btnFechar.Text = "Fechar";
             btnFechar.UseVisualStyleBackColor = true;
+            btnFechar.Click += btnFechar_Click;
             // 
             // FrmPessoas
             // 

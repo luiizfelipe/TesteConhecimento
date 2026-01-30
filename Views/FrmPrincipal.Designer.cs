@@ -28,23 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dgView = new DataGridView();
             btnPopulate = new Button();
             btnRefreshGrid = new Button();
             btnAddPessoa = new Button();
             btnReport = new Button();
+            label1 = new Label();
+            dgView = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dgView).BeginInit();
             SuspendLayout();
-            // 
-            // dgView
-            // 
-            dgView.Anchor = AnchorStyles.None;
-            dgView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgView.Location = new Point(207, 107);
-            dgView.Name = "dgView";
-            dgView.Size = new Size(498, 217);
-            dgView.TabIndex = 2;
-            dgView.CellClick += dgView_CellClick;
             // 
             // btnPopulate
             // 
@@ -54,7 +45,7 @@
             btnPopulate.FlatStyle = FlatStyle.Flat;
             btnPopulate.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             btnPopulate.ForeColor = Color.White;
-            btnPopulate.Location = new Point(207, 340);
+            btnPopulate.Location = new Point(164, 384);
             btnPopulate.Margin = new Padding(0);
             btnPopulate.Name = "btnPopulate";
             btnPopulate.Size = new Size(105, 45);
@@ -71,7 +62,7 @@
             btnRefreshGrid.FlatStyle = FlatStyle.Flat;
             btnRefreshGrid.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             btnRefreshGrid.ForeColor = Color.White;
-            btnRefreshGrid.Location = new Point(207, 31);
+            btnRefreshGrid.Location = new Point(164, 75);
             btnRefreshGrid.Name = "btnRefreshGrid";
             btnRefreshGrid.Size = new Size(219, 45);
             btnRefreshGrid.TabIndex = 4;
@@ -86,7 +77,7 @@
             btnAddPessoa.FlatStyle = FlatStyle.Flat;
             btnAddPessoa.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             btnAddPessoa.ForeColor = Color.White;
-            btnAddPessoa.Location = new Point(486, 340);
+            btnAddPessoa.Location = new Point(443, 384);
             btnAddPessoa.Name = "btnAddPessoa";
             btnAddPessoa.Size = new Size(219, 45);
             btnAddPessoa.TabIndex = 5;
@@ -98,10 +89,11 @@
             // 
             btnReport.Anchor = AnchorStyles.None;
             btnReport.BackColor = Color.FromArgb(0, 133, 250);
+            btnReport.FlatAppearance.BorderColor = Color.Blue;
             btnReport.FlatStyle = FlatStyle.Flat;
             btnReport.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             btnReport.ForeColor = Color.White;
-            btnReport.Location = new Point(548, 31);
+            btnReport.Location = new Point(505, 75);
             btnReport.Name = "btnReport";
             btnReport.Size = new Size(157, 45);
             btnReport.TabIndex = 6;
@@ -109,30 +101,56 @@
             btnReport.UseVisualStyleBackColor = false;
             btnReport.Click += btnReport_Click;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
+            label1.ForeColor = Color.FromArgb(0, 133, 250);
+            label1.Location = new Point(164, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(417, 45);
+            label1.TabIndex = 7;
+            label1.Text = "Gerenciamento de Pessoas";
+            // 
+            // dgView
+            // 
+            dgView.Anchor = AnchorStyles.None;
+            dgView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgView.Location = new Point(164, 170);
+            dgView.Name = "dgView";
+            dgView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgView.Size = new Size(498, 150);
+            dgView.TabIndex = 8;
+            dgView.CellClick += dgView_CellClick;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1036, 528);
+            ClientSize = new Size(827, 523);
+            Controls.Add(dgView);
+            Controls.Add(label1);
             Controls.Add(btnReport);
             Controls.Add(btnAddPessoa);
             Controls.Add(btnRefreshGrid);
             Controls.Add(btnPopulate);
-            Controls.Add(dgView);
             Name = "FrmPrincipal";
-            StartPosition = FormStartPosition.CenterParent;
-            Text = "FrmPrincipal";
-            WindowState = FormWindowState.Maximized;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Gerenciamento de Pessoas";
             Load += FrmPrincipal_Load;
             ((System.ComponentModel.ISupportInitialize)dgView).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private DataGridView dgView;
         private Button btnPopulate;
         private Button btnRefreshGrid;
         private Button btnAddPessoa;
         private Button btnReport;
+        private Label label1;
+        private DataGridView dgView;
     }
 }
