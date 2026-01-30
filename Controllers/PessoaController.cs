@@ -29,6 +29,77 @@ namespace TesteConhecimento.Controls
             }
         }
 
+        public static async Task<bool> AddPessoa(Pessoa pessoa)
+        {
+            try
+            {
+                using var context = new DatabaseContext();
+
+                context.Pessoa.Add(pessoa);
+                await context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao adicionar pessoa: {ex.Message}",
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static async Task<bool> UpdatePessoa(Pessoa pessoa)
+        {
+            try
+            {
+                using var context = new DatabaseContext();
+
+                var pessoaDb = await context.Pessoa.FindAsync(pessoa.Id);
+                if (pessoaDb == null)
+                    return false;
+
+                pessoaDb.Nome = pessoa.Nome;
+                pessoaDb.Telefone = pessoa.Telefone;
+
+                await context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao atualizar pessoa: {ex.Message}",
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+        public static async Task<bool> DeletePessoa(int id)
+        {
+            try
+            {
+                using var context = new DatabaseContext();
+
+                var pessoa = await context.Pessoa.FindAsync(id);
+                if (pessoa == null)
+                    return false;
+
+                context.Pessoa.Remove(pessoa);
+                await context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao remover pessoa: {ex.Message}",
+                    "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+            }
+        }
+
+
+
 
         public static async Task SeedAsync()
         {
