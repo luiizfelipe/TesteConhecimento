@@ -1,0 +1,11 @@
+version: '3.5'
+services:
+    database:
+        container_name: mysql-container
+        image: mysql/mysql-server
+        ports:
+            - "3306:3036"
+        environment:
+            MYSQL_DATABASE: teste_cadastros
+            MYSQL_USER: MySQLUser
+            MYSQL_PASSWORD: MySqlPassword
