@@ -1,0 +1,59 @@
+﻿namespace TesteConhecimento.Views.Reports
+{
+    partial class FrmReportPessoa
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            reportViewerPessoa = new Microsoft.Reporting.WinForms.ReportViewer();
+            SuspendLayout();
+            // 
+            // reportViewerPessoa
+            // 
+            reportViewerPessoa.Dock = DockStyle.Fill;
+            reportViewerPessoa.Location = new Point(0, 0);
+            reportViewerPessoa.Name = "ReportViewer";
+            reportViewerPessoa.ServerReport.BearerToken = null;
+            reportViewerPessoa.Size = new Size(800, 450);
+            reportViewerPessoa.TabIndex = 0;
+            reportViewerPessoa.Load += reportViewerPessoa_Load;
+            // 
+            // FrmReport
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(reportViewerPessoa);
+            Name = "FrmReport";
+            Text = "FrmReport";
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewerPessoa;
+    }
+}
