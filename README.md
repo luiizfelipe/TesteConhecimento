@@ -64,6 +64,13 @@ dotnet run
 
 ---
 
+## Demo
+![Preview](./Sample/preview.png)
+
+▶️ [Ver vídeo completo](./Sample/sample.mp4)
+
+---
+
 ## 👤 Autor
 
 Eu
