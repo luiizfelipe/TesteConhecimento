@@ -10,7 +10,7 @@ namespace TesteConhecimento.Infrastructure.Mapping
         {
             builder.ToTable("pessoas");
 
-            builder.HasKey(e => e.Id);
+            builder.HasKey(e => e.Id); //Auto incremento inplicito
             builder.Property(e => e.Nome).HasMaxLength(100);
             builder.Property(e => e.Telefone).HasMaxLength(100);
         }

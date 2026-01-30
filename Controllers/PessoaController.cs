@@ -98,9 +98,6 @@ namespace TesteConhecimento.Controls
             }
         }
 
-
-
-
         public static async Task SeedAsync()
         {
             try
