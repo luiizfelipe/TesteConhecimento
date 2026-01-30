@@ -40,15 +40,13 @@ namespace TesteConhecimento
             try
             {
                 var pessoas = await PessoaController.GetAllPessoas();
-                dgView.DataSource = pessoas
-                .Select(p => new
+                dgView.DataSource = pessoas.ToList();
+
+                var idColumn = dgView.Columns["Id"];
+                if (idColumn != null)
                 {
-                    p.Nome,
-                    p.Telefone
-                })
-                .ToList();
-
-
+                    idColumn.Visible = false;
+                }
             }
             catch (Exception ex)
             {
@@ -96,7 +94,7 @@ namespace TesteConhecimento
         {
             if (e.RowIndex < 0) return; // ignora header
 
-            Pessoa? pessoa = (Pessoa?)dgView.Rows[e.RowIndex].DataBoundItem;
+            var pessoa = dgView.Rows[e.RowIndex].DataBoundItem;
             if (pessoa == null) return;
 
             using var formAddPessoa = new FrmPessoas(pessoa);
