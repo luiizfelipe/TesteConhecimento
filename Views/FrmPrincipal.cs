@@ -87,8 +87,25 @@ namespace TesteConhecimento
             var result = formAddPessoa.ShowDialog();
             if (result == DialogResult.OK)
             {
-               await CarregarGridViewAsync();
+                await CarregarGridViewAsync();
             }
+
+        }
+
+        private async void dgView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return; // ignora header
+
+            Pessoa? pessoa = (Pessoa?)dgView.Rows[e.RowIndex].DataBoundItem;
+            if (pessoa == null) return;
+
+            using var formAddPessoa = new FrmPessoas(pessoa);
+            var result = formAddPessoa.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                await CarregarGridViewAsync();
+            }
+
 
         }
     }

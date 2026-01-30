@@ -53,6 +53,7 @@
             dgView.Name = "dgView";
             dgView.Size = new Size(737, 262);
             dgView.TabIndex = 2;
+            dgView.CellClick += dgView_CellClick;
             // 
             // btnPopulate
             // 
