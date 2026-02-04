@@ -95,8 +95,8 @@ namespace TesteConhecimento
         private void btnReport_Click(object sender, EventArgs e)
         {
 
-            using var frmReportPessoa= new FrmReportPessoa();
-            frmReportPessoa.ShowDialog();
+            var frmReportPessoa= new FrmReportPessoa();
+            frmReportPessoa.Show();
 
         }
 
