@@ -12,27 +12,14 @@ namespace TesteConhecimento
         public FrmPrincipal()
         {
             InitializeComponent();
-            this.Shown += async (s, e) => await CheckConnectionDatabase();
-
         }
 
-        internal async Task CheckConnectionDatabase()
+        private async void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            try
+            bool connected = await CheckConnectionDatabase();
+            if (connected)
             {
-                using var context = new DatabaseContext();
-                bool connected = await context.Database.CanConnectAsync();
-                if (!connected)
-                {
-                    MessageBox.Show("Não foi possível conectar ao banco de dados.", "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                await context.Database.EnsureCreatedAsync(); // Garante que o banco de dados seja criado se não existir.
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao conectar com o banco de dados: {ex.Message}", "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                await CarregarGridViewAsync();
             }
 
         }
@@ -69,12 +56,6 @@ namespace TesteConhecimento
                             "Sucesso",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
-        }
-
-        private async void FrmPrincipal_Load(object sender, EventArgs e)
-        {
-            await CarregarGridViewAsync();
-
         }
 
         private async void btnRefreshGrid_Click(object sender, EventArgs e)
@@ -118,5 +99,29 @@ namespace TesteConhecimento
             frmReportPessoa.ShowDialog();
 
         }
+
+        internal async Task<bool> CheckConnectionDatabase()
+        {
+            try
+            {
+                using var context = new DatabaseContext();
+                bool connected = await context.Database.CanConnectAsync();
+                if (!connected)
+                {
+                    MessageBox.Show("Não foi possível conectar ao banco de dados.", "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                await context.Database.EnsureCreatedAsync(); // Garante que o banco de dados seja criado se não existir.
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao conectar com o banco de dados: {ex.Message}", "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+        }
+
     }
 }
