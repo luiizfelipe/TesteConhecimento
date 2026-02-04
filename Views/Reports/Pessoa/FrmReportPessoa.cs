@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,8 @@ namespace TesteConhecimento.Views.Reports
         {
             var pessoas = await PessoaController.GetAllPessoas();
             reportViewerPessoa.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSetPessoa", pessoas));
+            reportViewerPessoa.SetDisplayMode(DisplayMode.PrintLayout);
+            reportViewerPessoa.ZoomMode = ZoomMode.PageWidth;
             reportViewerPessoa.RefreshReport();
 
         }

@@ -127,7 +127,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Id</rd:DefaultName>
@@ -142,6 +144,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -229,7 +232,7 @@
         <Top>1.74308cm</Top>
         <Left>2.27224cm</Left>
         <Height>1.2cm</Height>
-        <Width>12.42125cm</Width>
+        <Width>12.42126cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
